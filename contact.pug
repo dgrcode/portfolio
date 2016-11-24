@@ -1,0 +1,36 @@
+.container
+  .row
+    .col-sm-5.contact-info
+      h2 Contact info
+      p #[span.glyphicon.glyphicon-user] Daniel Gonz&aacute;lez Reina
+      p #[span.glyphicon.glyphicon-earphone] (+34) 667 257 829
+      p #[span.glyphicon.glyphicon-envelope] dangonrei@gmail.com 
+      p #[span.glyphicon.glyphicon-map-marker] Seville, Spain
+      .social-info
+        #github-icon.social-icon
+          i.fa.fa-github(aria-hidden="true")
+        #twitter-icon.social-icon
+          i.fa.fa-twitter(aria-hidden="true")
+        #codepen-icon.social-icon
+          i.fa.fa-codepen(aria-hidden="true")
+        #fcc-icon.social-icon
+          i.fa.fa-free-code-camp(aria-hidden="true")
+          //-include assets/social/freecodecamp.svg
+    form#form.col-sm-7.contact-form
+      h2 Get in touch
+      .gRow
+        .gCol
+          #name-form
+            h4 Name
+            input.form-control(type="text", placeholder="Name", name="name")
+          #email-form
+            h4 Email
+            input.form-control(type="text", placeholder="Email", name="email")
+        .gCol
+          button#btnSend.btn.btn-send(type="submit") #[span.glyphicon.glyphicon-send] Send
+      #message-form  
+        h4 Message
+        textarea.form-control(placeholder="Write your message here", name="message")
+      #form-config
+        input(type="hidden", name="_subject", value="Contact from Portfolio")
+//-TODO redondear esquinas de la parte blanca

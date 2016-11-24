@@ -1,0 +1,22 @@
+<svg version="1.1"
+	 id="css3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="htmlcss.svg" inkscape:version="0.48.3.1 r9886"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="362.733px" height="512px"
+	 viewBox="0 0 362.733 512" enable-background="new 0 0 362.733 512" xml:space="preserve">
+<g id="text">
+	<path id="c" inkscape:connector-curvature="0" d="M85.367,0h55v23h-32v23h32v23h-55V0z"/>
+	<path id="s1" inkscape:connector-curvature="0" d="M151.367,0h55v20h-32v4h32v46h-55V49h32v-4h-32V0z"/>
+	<path id="s2" inkscape:connector-curvature="0" d="M217.367,0h55v20h-32v4h32v46h-55V49h32v-4h-32V0z"/>
+</g>
+<g id="logo">
+	<polygon fill="#264DE4" points="181.145,512 33.011,470.878 0,100.62 362.734,100.62 329.688,470.819 	"/>
+	<polygon fill="#2965F1" points="301.397,447.246 329.637,130.894 181.367,130.894 181.367,480.523 	"/>
+	<polygon fill="#EBEBEB" points="75.677,268.217 79.747,313.628 181.367,313.628 181.367,268.217 	"/>
+	<polygon fill="#EBEBEB" points="67.499,176.305 71.627,221.716 181.367,221.716 181.367,176.305 181.21,176.305 	
+		"/>
+	<polygon fill="#EBEBEB" points="181.367,386.153 181.168,386.206 130.594,372.551 127.361,336.334 
+		102.786,336.334 81.776,336.334 88.138,407.635 181.158,433.457 181.367,433.399 	"/>
+	<polygon  fill="#FFFFFF" points="286.766,268.217 294.964,176.305 181.21,176.305 181.21,221.716 245.198,221.716 
+		241.066,268.217 181.21,268.217 181.21,313.628 237.128,313.628 231.857,372.521 181.21,386.191 181.21,433.435 274.304,407.635 
+		274.987,399.963 285.658,280.411 	"/>
+</g>
+</svg>

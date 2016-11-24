@@ -1,0 +1,50 @@
+#about
+  background-color: #f9f9f9//#eee//#fff//#999//#8fafef
+  color: #333//white
+  padding-bottom: 50px
+
+  //.vcenter
+  //  display: inline-block;
+  //  vertical-align: middle;
+  //  float: none
+
+  .row
+    margin-top: 100px
+    position: relative
+    display: flex
+
+    @media (max-width: 768px)
+      display: block
+      margin: auto
+
+    #myPhoto
+      display: flex
+      justify-content: center
+      align-items: center
+
+
+      img
+        height: 250px
+        width: auto
+        filter: url(#dropshadow_center)
+        //transition: transform .3s
+        //&:hover
+        //  transform: scale(1.1)
+
+    .col-logos
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+      .row-logos
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-wrap: wrap
+
+        @media (max-width: 992px)
+        svg
+          height: 100px
+          width: auto
+          margin: 10px
+          //border: 1px solid black

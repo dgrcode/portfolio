@@ -1,0 +1,11 @@
+# Ignore folders that contains files not used
+**/.notused
+
+# Ignore local folder
+/.local
+
+# Ignore node_modules
+/node_modules
+
+# Ignore Sass cache
+/.sass-cache

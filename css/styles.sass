@@ -1,0 +1,252 @@
+$navbarAnimationTime: 700ms
+$sectionHeight: 700px
+$sectionBg: #f1f1f1
+$navbarHeight: 120px
+$navbarHeightNarrow: 60px
+$monokaiMagenta: #F92672
+$monokaiBlue: #89BDFF
+$monokaiMLight: hsl(338, 95%, 70%)
+$monokaiBLight: hsl(214, 100%, 65%)
+
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Raleway'
+
+//*
+//  border: solid 1px white
+
+.container-fluid
+  padding: 0
+
+.nolink, .nolink:link, .nolink:hover, .nolink:visited, .nolink:active
+  color: currentColor
+  text-decoration: none
+  background-color: transparent !important
+  //padding: 0
+
+svg
+  overflow: visible !important
+
+strong
+  color: $monokaiMLight
+  &.future
+    color: currentColor
+
+p.small
+  font-size: .9em
+
+body
+  position: relative
+
+  &.modal-open
+    overflow: hidden
+
+.far
+  position: absolute
+  top: 0
+  .bg
+    position: fixed
+    background-image: url("../assets/header-mountain-crop.jpg")
+    background-size: cover
+    
+    height: 100vh
+    width: 100vw
+
+.front
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+
+  .view-through
+    position: relative
+    height: 100vh
+
+    #logo
+      position: absolute
+      height: 60%
+      width: auto
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      filter: url(#dropshadow)
+
+      @media (max-width: 768px)
+        height: 55%
+
+      &-hex
+        transform-origin: center
+        animation: spin 100s linear infinite
+      &-webdev
+        tspan:first-child
+          fill: $monokaiBlue
+
+    .nav-wrapper
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: 2000
+      height: $navbarHeight
+      transition: height .5s
+
+      nav
+        height: inherit
+        width: 70%
+        margin: auto
+        margin-bottom: 0 !important
+        border-radius: 0 !important
+        color: white
+
+        @media (max-width: 768px)
+          width: 90%
+
+        background-color: transparent
+        border: none
+
+        .container-fluid
+          height: 100%
+          position: relative
+
+          button
+            color: #333
+            padding: 20px
+            position: absolute
+            top: 50%
+            right: 0
+            margin: 0
+            transform: translateY(-50%)
+            //border: 1px solid #333
+            //border-radius: 3px
+
+            .icon-bar
+              background-color: #333
+              height: 2px
+
+          .navbar-header
+            padding: 20px
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+
+            #logo-sm
+              position: absolute
+              height: 80px
+              width: auto
+              cursor: pointer
+              top: 50%
+              left: 50%
+              transform: translate(-50%, -50%)
+              filter: url(#dropshadow)
+              transition: height .5s
+
+              &-hex
+                stroke: #ffffff
+                transform-origin: center
+                transition: transform .7s cubic-bezier(0.18, 0.89, 0.66, 1.84)
+              &-d
+                fill: $monokaiMagenta
+
+              &:hover
+                #logo-sm-hex
+                  //animation: spin 5s linear infinite
+                  //animation-fill-mode: forwards
+                  transform: rotate(60deg)
+
+          ul
+            padding: 20px
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+            margin-right: 0px
+
+            @media (max-width: 768px)
+              position: absolute
+              top: 112px
+              right: 0
+              padding: 0
+              margin-right: auto
+              transform: translateY(0)
+              color: #333
+              background-color: rgba(255, 255, 255, 0.9)
+              border-radius: 0 0 10px 10px
+              border: 1px solid #ccc
+              border-top: none
+              li
+                text-shadow: none !important
+
+            li
+              //padding: 10px
+              text-shadow: 0px -4px 3px rgba(0, 0, 0, 0.4)
+              font-size: 1.5em
+              font-family: Monospace
+              cursor: pointer
+
+              &:hover
+                color: $monokaiMagenta
+
+      .nav-bg
+        opacity: 0
+        z-index: -10
+        background-color: rgba(255, 255, 255, 0.8)
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        height: inherit
+        transition: opacity $navbarAnimationTime/2, box-shadow $navbarAnimationTime
+
+      &.fixed
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        
+        .nav-bg
+          opacity: 1
+          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3)
+
+        #logo-sm
+          filter: none !important
+          #logo-sm-hex
+            stroke: #555
+
+        li
+          text-shadow: none !important
+          color: #555
+
+      &.narrow
+        height: $navbarHeightNarrow
+        
+        #logo-sm
+          height: 60px !important
+
+        @media (max-width: 768px)
+          ul
+            top: 52px !important
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+
+.main-content
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3)
+  transition: none
+  font-family: Raleway
+  font-size: 1.2em
+  text-align: justify
+
+  .section
+    background-color: $sectionBg
+
+    h2
+      text-align: center
+      font-family: Montserrat
+      font-size: 1.5em
+
+@import about
+@import portfolio
+@import contact

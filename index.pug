@@ -1,0 +1,60 @@
+doctype html
+html(lang="en")
+  head
+    title APP
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(href='node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='css/styles.css', rel='stylesheet')
+    script(src='node_modules/jquery/dist/jquery.min.js')
+    //-script(src="node_modules/bootstrap/dist/js/bootstrap.js")
+    script(src="node_modules/bootstrap/js/transition.js")
+    script(src="node_modules/bootstrap/js/collapse.js")
+    //-script(src="node_modules/masonry-layout/dist/masonry.pkgd.min.js")
+    script(src="https://use.fontawesome.com/1174364321.js")
+    script(src='js/index.js')
+    script(src='js/navbar.js')
+    script(src='js/form.js')
+    script(src='js/portfolio.js')
+  body
+
+    .far
+      .bg
+
+    .front
+      .container-fluid
+        .view-through
+          //-img(src='assets/logo-v5.png')
+          include assets/svg/logo.svg
+          .nav-wrapper
+            nav.navbar
+              .container-fluid
+                .navbar-header
+                  a.navbar-brand(href="#")
+                    //-img#logo-sm(src="assets/logo-sm.png")
+                    include assets/svg/logo-sm-v2.svg
+                button.collapsed.navbar-toggle.navbar-right(type="button", data-toggle="collapse", data-target="#navbar-list", aria-expanded="false")
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                ul#navbar-list.nav.navbar-nav.navbar-right.collapse.navbar-collapse
+                  li
+                    a.navlink.nolink(href="#about") about
+                  li 
+                    a.navlink.nolink(href="#portfolio") portfolio
+                  li 
+                    a.navlink.nolink(href="#contact") contact
+            .nav-bg
+
+        .main-content
+          .section#about
+            include about.pug
+
+          .section#portfolio
+            include portfolio.pug
+
+          .section#contact
+            include contact.pug
+            //- TODO cambiar el tab-index del botón de enviar
+
+    include assets/svg/filterShadow.svg
