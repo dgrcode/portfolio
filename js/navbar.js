@@ -1,3 +1,6 @@
+// TODO cuando le das click a la D, vas para arriba y la barra se pone grande.
+// Si en ese momento, ya grande, le vuelves a dar, se pone pequeño. No debería
+
 ( function($) {
 let fixedHeader = false;
 let narrowHeader = false;
@@ -11,16 +14,15 @@ function toggleHeader() {
   console.log('fixedHeader = ' + fixedHeader);
   if (fixedHeader) {
     $(".nav-wrapper").addClass('fixed');
-    $("#logo-sm").attr('src', 'assets/logo-sm-flat.png');
     $(".main-content").css({boxShadow: 'none', transition: 'none'});
   } else {
     $(".nav-wrapper").removeClass('fixed');
-    $("#logo-sm").attr('src', 'assets/logo-sm.png');
     $(".main-content").css({boxShadow: mainContentShadow, transition: 'box-shadow 1s'});
   }
 }
 
 function toggleHeaderNarrow(newState) {
+  // If newState is not provided, it is the opposite of narrowHeader (boolean)
   narrowHeader = newState||!narrowHeader;
   console.log('narrowHeader = ' + narrowHeader);
   if (narrowHeader) {
@@ -48,7 +50,6 @@ $(window).scroll(function () {
 });
 
 $().ready(args => {
-  $('<img/>')[0].src = 'assets/logo-sm-flat.png';
 
   // Get the shadow that will be used to restore it.
   mainContentShadow = $(".main-content").css('box-shadow');
