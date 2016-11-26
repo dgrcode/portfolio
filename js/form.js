@@ -38,7 +38,12 @@ const sendClick = e => {
     let formspreeUrl = "https://formspree.io/dangonrei@gmail.com";
     let formspreeData = $('#form').serialize();
 
-    $.post(formspreeUrl, formspreeData, "json")
+    $.ajax({
+      url: "https://formspree.io/dangonrei@gmail.com", 
+      method: "POST",
+      data: $('#form').serialize(),
+      dataType: "json",
+    })
       .done(messageSentSuccess)
       .fail(messageNotSent);
   }
