@@ -88,8 +88,9 @@ body.modal-open { overflow: hidden; }
 .p-item:hover:not(#p-modal) .description { opacity: 0; }
 .p-item:hover:not(#p-modal) .cover { opacity: 0; }
 
-#p-modal { opacity: 0; position: fixed; background-color: white; transform: scale(1.02) translate(-50%, -50%); overflow: hidden; transition: box-shadow 0s, width 1s, height 1s; }
+#p-modal { opacity: 0; position: fixed; background-color: white; transform: scale(1.02) translate(-50%, -50%); overflow: hidden; transition: box-shadow 0s, width 1s, height 1s; max-width: 90%; }
 #p-modal .cover { position: relative; height: 4em; margin-top: -5em; opacity: 0; transition: margin-top 0.5s ease-out, opacity 1s; cursor: default; }
+#p-modal .cover button { position: absolute; right: 30px; font-size: 2em; }
 #p-modal .info { position: absolute; overflow-y: scroll; padding-top: 2em; height: calc(100% - 4em); width: 100%; }
 #p-modal .description { color: #333; opacity: 1; background-color: transparent; }
 #p-modal.modal-full { top: 50%; left: 50%; height: 70%; min-height: 450px; width: 600px; transition: box-shadow 0s, width 0.5s, height 0.5s, top 0.5s, left 0.5s; }

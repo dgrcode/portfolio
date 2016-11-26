@@ -21,6 +21,11 @@ function openModal($projectClicked) {
 
   // Transfer project content to the modal
   $project.children().clone().appendTo($modal);
+
+  // Show the button
+  let $btnModalClose = $modal.find('.cover button');
+  $btnModalClose.removeClass('hidden');
+  $btnModalClose.click(closeModal);
   
   // Set the modal on top of the clicked project, and make it visible
   $modal.offset({top: projectTop, left: projectLeft});
@@ -80,6 +85,11 @@ function closeModal() {
     left: windowWidth / 2,
   });
   */
+
+  // Hide the button
+  let $btnModalClose = $modal.find('.cover button');
+  $btnModalClose.addClass('hidden');
+  $btnModalClose.off('click'); // is this the way to remove the click listener?
   
   $modal.css({
     top: projectTop - windowTop + $project.outerHeight() / 2,

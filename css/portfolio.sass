@@ -120,6 +120,7 @@ $itemMarginM: 20px
   transform: scale(1.02) translate(-50%, -50%)
   overflow: hidden
   transition: box-shadow 0s, width 1s, height 1s
+  max-width: 90%
 
   .cover
     position: relative
@@ -128,6 +129,11 @@ $itemMarginM: 20px
     opacity: 0
     transition: margin-top .5s ease-out, opacity 1s
     cursor: default
+
+    button
+      position: absolute
+      right: 30px
+      font-size: 2em
 
   .info
     position: absolute
