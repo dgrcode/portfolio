@@ -25,7 +25,7 @@ html(lang="en")
             nav.navbar
               .container-fluid
                 .navbar-header
-                  a.navbar-brand(href="#")
+                  a.navbar-brand(href="#" tabindex="1")
                     include assets/svg/logo-sm-v2.svg
                 button.collapsed.navbar-toggle.navbar-right(type="button", data-toggle="collapse", data-target="#navbar-list", aria-expanded="false")
                   span.sr-only Toggle navigation
@@ -34,11 +34,11 @@ html(lang="en")
                   span.icon-bar
                 ul#navbar-list.nav.navbar-nav.navbar-right.collapse.navbar-collapse
                   li
-                    a.navlink.nolink(href="#about") about
+                    a.navlink.nolink(href="#about" tabindex="2") about
                   li 
-                    a.navlink.nolink(href="#portfolio") portfolio
+                    a.navlink.nolink(href="#portfolio" tabindex="3") portfolio
                   li 
-                    a.navlink.nolink(href="#contact") contact
+                    a.navlink.nolink(href="#contact" tabindex="4") contact
             .nav-bg
 
         .main-content

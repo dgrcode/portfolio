@@ -106,7 +106,8 @@ body.modal-open { overflow: hidden; }
 input, textarea { border: none; background-color: #f7f7f7; margin: 10px; }
 
 #contact { background-color: #f9f9f9; color: #333; padding-bottom: 100px; min-height: 600px; }
-#contact .row { display: flex; border-radius: 10px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3); min-height: 450px; }
+#contact .row { display: flex; border-radius: 10px; box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3); height: 450px; }
+@media(max-width: 768px) { #contact .row { height: auto; } }
 #contact .contact-info { background-color: #333; color: white; border-radius: 10px 0 0 10px; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; }
 #contact .contact-info .glyphicon { margin-right: 20px; }
 #contact .contact-info .social-info { display: flex; justify-content: space-around; align-items: center; }
@@ -115,14 +116,19 @@ input, textarea { border: none; background-color: #f7f7f7; margin: 10px; }
 #contact .contact-info .social-info #twitter-icon { font-size: 2em; padding: 5px 0 0 2px; }
 #contact .contact-info .social-info #codepen-icon { font-size: 1.7em; }
 #contact .contact-info .social-info #fcc-icon { font-size: 1.7em; }
-#contact .contact-form { display: flex; flex-direction: column; justify-content: space-between; padding: 40px; background-color: #fff; }
-#contact .contact-form .gRow { display: flex; }
+#contact .contact-form { display: flex; flex-direction: column; justify-content: space-between; border-radius: 0 10px 10px 0; padding: 40px; background-color: #fff; }
+#contact .contact-form h2 { margin-top: 0; }
+#contact .contact-form .gRow { display: flex; margin-bottom: 10px; }
 #contact .contact-form .gRow .gCol { display: flex; flex-direction: column; justify-content: space-around; width: 50%; }
+#contact .contact-form .half-height { max-height: 50%; }
 #contact .contact-form h4 { font-size: 0.7em; }
 #contact .contact-form textarea { height: calc(100% - 3em); width: calc(100% - 1em); }
 #contact .contact-form #message-form { height: 60%; }
 #contact .contact-form button { display: flex; align-items: center; align-self: center; }
 #contact .contact-form button span { font-size: 1em; margin-right: 10px; }
 #contact .contact-form .btn-send { background-color: #333; color: white; }
+#contact #alert-container { position: fixed; transition: opacity 0s; margin: auto -15px; top: -100px; opacity: 0; z-index: 1500; }
+#contact #alert-container.visible { transition: top 1s, opacity 0.3s; top: 110px; opacity: 1; }
+#contact #alert-container #contact-alert { width: 60%; margin: auto; }
 
 /*# sourceMappingURL=styles.css.map */

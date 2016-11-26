@@ -1,41 +1,46 @@
 //- TODO: Poner andando el formulario de envío
-//- TODO: Poner que los links lleven a los sitios adecuados
-//- TODO: El correo escrito debe llevar al mailto:dangonrei@gmail.com
-//- TODO: Parece que el título de la parte blanca y los dos primeros campos se han venido un poco hacia abajo
 
 .container
   .row
-    .col-sm-5.contact-info
+    .col-sm-5.col-xs-12.contact-info
       h2 Contact info
       p #[span.glyphicon.glyphicon-user] Daniel Gonz&aacute;lez Reina
       p #[span.glyphicon.glyphicon-earphone] (+34) 667 257 829
-      p #[span.glyphicon.glyphicon-envelope] dangonrei@gmail.com 
+      p #[span.glyphicon.glyphicon-envelope] dangonrei@gmail.com
       p #[span.glyphicon.glyphicon-map-marker] Seville, Spain
       .social-info
-        #github-icon.social-icon
-          i.fa.fa-github(aria-hidden="true")
-        #twitter-icon.social-icon
-          i.fa.fa-twitter(aria-hidden="true")
-        #codepen-icon.social-icon
-          i.fa.fa-codepen(aria-hidden="true")
-        #fcc-icon.social-icon
-          i.fa.fa-free-code-camp(aria-hidden="true")
-          //-include assets/social/freecodecamp.svg
-    form#form.col-sm-7.contact-form
+        a.nolink(href="https://github.com/dgrcode" target="_blank" tabindex="5")
+          #github-icon.social-icon
+            i.fa.fa-github(aria-hidden="true")
+        a.nolink(href="https://twitter.com/dgrcode" target="_blank" tabindex="6")
+          #twitter-icon.social-icon
+            i.fa.fa-twitter(aria-hidden="true")
+        a.nolink(href="http://codepen.io/dangonrei" target="_blank" tabindex="7")
+          #codepen-icon.social-icon
+            i.fa.fa-codepen(aria-hidden="true")
+        a.nolink(href="https://www.freecodecamp.com/danoso89" target="_blank" tabindex="8")
+          #fcc-icon.social-icon
+            i.fa.fa-free-code-camp(aria-hidden="true")
+    .clearfix.visible-xs-block
+    form#form.col-sm-7.col-xs-12.contact-form
       h2 Get in touch
       .gRow
         .gCol
-          #name-form
+          #name-form.half-height
             h4 Name
-            input.form-control(type="text", placeholder="Name", name="name")
-          #email-form
+            input.form-control(type="text" placeholder="Name" name="name" tabindex="9")
+          #email-form.half-height
             h4 Email
-            input.form-control(type="text", placeholder="Email", name="email")
+            input.form-control(type="text" placeholder="Email" name="email" tabindex="10")
         .gCol
-          button#btnSend.btn.btn-send(type="submit") #[span.glyphicon.glyphicon-send] Send
+          button#btnSend.btn.btn-send(tabindex="12") #[span.glyphicon.glyphicon-send] Send
       #message-form  
         h4 Message
-        textarea.form-control(placeholder="Write your message here", name="message")
+        textarea.form-control(placeholder="Write your message here" name="message" tabindex="11")
       #form-config
         input(type="hidden", name="_subject", value="Contact from Portfolio")
-//-TODO redondear esquinas de la parte blanca
+
+  .container#alert-container
+    #contact-alert.alert.alert-dismissible(role="alert")
+      button#alert-btn-close.close(type="button" aria-label="Close") #[span(aria-hidden="true") &times;]
+      #alert-content

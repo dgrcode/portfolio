@@ -13,7 +13,10 @@ input, textarea
     display: flex
     border-radius: 10px
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3)
-    min-height: 450px
+    height: 450px
+
+    @media(max-width: 768px)
+      height: auto
 
   .contact-info
     background-color: #333
@@ -61,17 +64,25 @@ input, textarea
     display: flex
     flex-direction: column
     justify-content: space-between
+    border-radius: 0 10px 10px 0
     padding: 40px
     background-color: #fff
 
+    h2
+      margin-top: 0
+
     .gRow
       display: flex
+      margin-bottom: 10px
 
       .gCol
         display: flex
         flex-direction: column
         justify-content: space-around
         width: 50%
+
+    .half-height
+      max-height: 50%
 
     h4
       font-size: 0.7em
@@ -95,3 +106,20 @@ input, textarea
     .btn-send
       background-color: #333
       color: white
+
+  #alert-container
+    position: fixed
+    transition: opacity 0s
+    margin: auto -15px
+    top: -100px
+    opacity: 0
+    z-index: 1500
+
+    &.visible
+      transition: top 1s, opacity 0.3s
+      top: 110px
+      opacity: 1
+
+    #contact-alert
+      width: 60%
+      margin: auto
