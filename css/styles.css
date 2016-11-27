@@ -3,6 +3,8 @@
 
 .nolink, .nolink:link, .nolink:hover, .nolink:visited, .nolink:active { color: currentColor; text-decoration: none; background-color: transparent !important; }
 
+*:not(button):focus { outline: none !important; }
+
 svg { overflow: visible !important; }
 
 strong { color: #fb6a9f; }
