@@ -8,7 +8,7 @@ html(lang="en")
     script(src='public/jquery/dist/jquery.min.js')
     script(src="public/bootstrap/dist/js/bootstrap.min.js")
     script(src="https://use.fontawesome.com/1174364321.js")
-    script(src='js/index.js')
+    //-script(src='js/index.js')
     script(src='js/navbar.js')
     script(src='js/form.js')
     script(src='js/portfolio.js')
@@ -25,9 +25,9 @@ html(lang="en")
             nav.navbar
               .container-fluid
                 .navbar-header
-                  a.navbar-brand(href="#" tabindex="1")
+                  a.navbar-brand(type="button" tabindex="1")
                     include assets/svg/logo-sm-v2.svg
-                button.collapsed.navbar-toggle.navbar-right(type="button", data-toggle="collapse", data-target="#navbar-list", aria-expanded="false")
+                button.collapsed.navbar-toggle.navbar-right(type="button", aria-expanded="false")
                   span.sr-only Toggle navigation
                   span.icon-bar
                   span.icon-bar

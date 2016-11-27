@@ -2,16 +2,18 @@
 // Si en ese momento, ya grande, le vuelves a dar, se pone pequeño. No debería
 
 ( function($) {
+let $mainContent;
 let fixedHeader = false;
 let narrowHeader = false;
+let movingToSection = false;
 let mainContentShadow;
 
-//$.support.transition = false;
-
-// table header fixed at top when scrolling
-function toggleHeader() {
+/**
+ * Set the header fixed/unfixed depending on the scrolled position
+ */
+function toggleHeaderFixed() {
   fixedHeader = !fixedHeader;
-  console.log('fixedHeader = ' + fixedHeader);
+  //console.log('fixedHeader = ' + fixedHeader);
   if (fixedHeader) {
     $(".nav-wrapper").addClass('fixed');
     $(".main-content").css({boxShadow: 'none', transition: 'none'});
@@ -21,10 +23,15 @@ function toggleHeader() {
   }
 }
 
+/**
+ * This function does the following depending on the argument:
+ *   - toggleHeaderNarrow(true): sets the header as narrow
+ *   - toggleHeaderNarrow(false): sets the header as wide
+ *   - toggleHeaderNarrow(): switch the state of the header
+ */
 function toggleHeaderNarrow(newState) {
-  // If newState is not provided, it is the opposite of narrowHeader (boolean)
-  narrowHeader = newState||!narrowHeader;
-  console.log('narrowHeader = ' + narrowHeader);
+  narrowHeader = (newState !== undefined)? newState : !narrowHeader;
+  //console.log('narrowHeader = ' + narrowHeader);
   if (narrowHeader) {
     $(".nav-wrapper").addClass('narrow');
   } else {
@@ -35,35 +42,106 @@ function toggleHeaderNarrow(newState) {
 function setHeaderWide() {
   toggleHeaderNarrow(false);
 }
+function setHeaderNarrow() {
+  toggleHeaderNarrow(true);
+}
+
 
 $(window).scroll(function () {
-  var navRelPos = $(".main-content").position().top - $('nav').outerHeight() - $(window).scrollTop();
-  var navNarrowPos = $(".main-content").position().top - $(window).scrollTop();
+  // Set the header fixed when the top of the nav reaches the top of the screen
+  // Set the header narrow when the top of the content reaches the top of the screen
 
-  if ((navRelPos <= 0 && fixedHeader === false) || (navRelPos > 0 && fixedHeader === true)) {
-    toggleHeader();
-  } else if((narrowHeader === false && navNarrowPos <= 0 || narrowHeader === true && navNarrowPos > 0)) {
-    toggleHeaderNarrow();
+  mainContentTop = $mainContent.position().top;
+  // navRelPos: space between nav.top and screen.top
+  // navNarrowPos: space between content.top and screen.top
+  var navRelPos = mainContentTop - $('nav').outerHeight() - $(window).scrollTop();
+  var navNarrowPos = mainContentTop - $(window).scrollTop();
+
+  if ((navRelPos <= 0 && fixedHeader === false) ||
+      (navRelPos > 0 && fixedHeader === true)) {
+    toggleHeaderFixed();
+  } else if (!movingToSection){
+    if (navNarrowPos <= 0 && narrowHeader === false) {
+      setHeaderNarrow();
+    } else if (navNarrowPos > 0 && narrowHeader === true) {
+      setHeaderWide();
+    }
   }
 
+  // hides the dropdown menu on scroll
   $('.collapse').collapse('hide');
 });
 
 $().ready(args => {
 
+  $mainContent = $('.main-content');
+  let $dropdownMenu = $('.collapse');
+  let promise = $.Deferred();
+
   // Get the shadow that will be used to restore it.
-  mainContentShadow = $(".main-content").css('box-shadow');
-  
-  // Restores the header to wide state when clicking at the logo
-  // as it moves the page to the top.
-  $('.navbar-brand').click(setHeaderWide);
+  mainContentShadow = $('.main-content').css('box-shadow');
+
+  // If the dropdown menu doesn't fit below, moves the screen to #about section
+  $('button.navbar-toggle').click(event => {
+    event.preventDefault();
+
+    // menu height = 120px; margin-bottom = 40px
+    if ($(window).scrollTop() <= 120 + 40) {
+      // move the screen down
+      $('html, body').animate({
+        scrollTop: $('#about').offset().top
+      }, 500);;
+      movingToSection = true;
+      setHeaderNarrow();
+    }
+
+    $('html, body').promise().done(() => {
+      $dropdownMenu.collapse('show');
+      movingToSection = false;
+    });
+
+  });
 
   // Hide the menu when clicking outside of it in a narrow screen.
   $('.navlink').click(() => {
-    $('.collapse').collapse('hide');
+    $dropdownMenu.collapse('hide');
   });
   $('body').click(() => {
-    $('.collapse').collapse('hide');
+    $dropdownMenu.collapse('hide');
   })
+
+  // Set the link for the different sections
+  $('.navlink').click(function() {
+    let linkedId = $(this).attr('href');
+    let correction = linkedId == '#about'? 0 : 80;
+
+    $('html, body').animate({
+      scrollTop: $(linkedId).offset().top - correction
+    }, 500);
+    //return false;
+
+    movingToSection = true;
+    setHeaderNarrow();
+
+    $('html, body').promise().done(() => {
+      movingToSection = false;
+    });
+  });
+
+  // Set the link for the logo
+  $('.navbar-brand').click(() => {
+
+    $('html, body').animate({
+        scrollTop: 0
+    }, 500);
+
+    movingToSection = true;
+    setHeaderWide();
+
+    $('html, body').promise().done(() => {
+      movingToSection = false;
+    });
+  });
+
 });
 })(jQuery)
