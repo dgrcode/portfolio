@@ -112,6 +112,42 @@ input, textarea
       background-color: #333
       color: white
 
+  .social-icons-xs
+    flex-direction: row
+    justify-content: space-around
+    flex-shrink: 0
+    padding-top: 20px
+    display: none
+
+    @media(max-width: 768px)
+      display: flex
+
+    .social-icon
+      display: inline-flex
+      background-color: #333
+      color: white
+      height: 50px
+      width: 50px
+      border-radius: 50%
+      justify-content: center
+      align-items: center
+
+    #github-icon
+      color: #333
+      background-color: transparent
+      font-size: 57px
+
+    #twitter-icon
+      font-size: 2em
+      padding: 5px 0 0 2px
+
+    #codepen-icon
+      font-size: 1.7em
+
+    #fcc-icon
+      font-size: 1.7em
+
+
   #alert-container
     position: fixed
     width: 100%
