@@ -18,7 +18,7 @@ $().ready(args => {
 
   $('#btnSend').click(sendClick);
 
-  $('#alert-btn-close').click(closeAlert);
+  $('button#alert-btn-close').click(closeAlert);
 });
 
 const sendClick = e => {
