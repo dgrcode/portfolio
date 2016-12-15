@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         livereload: 3000
       },
       pug: {
-        files: '*.pug',
+        files: 'partials/*.pug',
         tasks: ['pug']
       },
       sass: {
